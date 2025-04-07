@@ -78,4 +78,11 @@ footer {
   text-align: center;
   margin: 10px;
   background-color: white;
+  cursor: pointer
+}
+button {
+  display: flex;
+  justify-content: center; /* alinha horizontalmente */
+  align-items: center;     /* alinha verticalmente */
+  text-align: center;
 }

@@ -81,8 +81,22 @@ footer {
   cursor: pointer
 }
 button {
-  display: flex;
   justify-content: center; /* alinha horizontalmente */
   align-items: center;     /* alinha verticalmente */
   text-align: center;
+}
+
+@media (max-width: 600px) {
+
+
+h1 {
+    font-size: 3rem;
+  }
+
+
+  button {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
 }

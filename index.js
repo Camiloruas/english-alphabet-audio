@@ -1,8 +1,8 @@
 
-var numerodeButtons = document.querySelectorAll(".drum").length;
+var numerodeButtons = document.querySelectorAll(".letra").length;
 
 for (var i = 0; i < numerodeButtons; i++) {
-  document.querySelectorAll(".drum")[i].addEventListener("click", function () {
+  document.querySelectorAll(".letra")[i].addEventListener("click", function () {
     var buttonInnerHTML = this.innerHTML.toLowerCase();
 
     switch (buttonInnerHTML) {

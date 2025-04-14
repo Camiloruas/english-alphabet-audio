@@ -60,6 +60,23 @@ button {
 }
 
 @media (max-width: 600px) {
+ 
+  body {
+    text-align: center;
+    background-color: #283149;
+  }
+
+  .letra {
+    font-size: 3rem;
+    width: 100px;
+    height: 100px;
+  }
+  
+
+  footer {
+    color: #DBEDF3;
+    font-family: sans-serif;
+  }
 
 
 h1 {

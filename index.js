@@ -139,7 +139,7 @@ for (var i = 0; i < numerodeButtons; i++) {
         break
     
     default:
-        console.log(butttonInnerHTML);
+        console.log(buttonInnerHTML);
         break;
  
     }

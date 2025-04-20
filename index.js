@@ -1,154 +1,141 @@
 
-var numerodeButtons = document.querySelectorAll(".letra").length;
+// Adiciona eventos aos botões
+var buttons = document.querySelectorAll(".letra");
 
-for (var i = 0; i < numerodeButtons; i++) {
-  document.querySelectorAll(".letra")[i].addEventListener("click", function () {
+for (var i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener("click", function () {
     var buttonInnerHTML = this.innerHTML.toLowerCase();
+    makeSound(buttonInnerHTML);
+    botaoAnimacao(buttonInnerHTML);
+  });
+}
 
-    switch (buttonInnerHTML) {
-      case "a":
-        var audio = new Audio("sounds/a.mp3");
-        audio.play();
-        break;
- 
+// Detecta teclas do teclado
+document.addEventListener("keydown", function (event) {
+  makeSound(event.key);
+  botaoAnimacao(event.key);
+});
+
+// Função para tocar o som
+function makeSound(key) {
+  switch (key) {
+    case "a":
+      var audio = new Audio("sounds/a.mp3");
+      audio.play();
+      break;
     case "b":
         var audio = new Audio("sounds/b.mp3");
         audio.play();
-        break
-
+        break;
     case "c":
         var audio = new Audio("sounds/c.mp3");
         audio.play();
-        break
-
+        break;  
     case "d":
         var audio = new Audio("sounds/d.mp3");
         audio.play();
-        break
-
-
+        break;
     case "e":
         var audio = new Audio("sounds/e.mp3");
         audio.play();
-        break
-    
+        break;
     case "f":
         var audio = new Audio("sounds/f.mp3");
         audio.play();
-        break
-
+        break;
     case "g":
         var audio = new Audio("sounds/g.mp3");
         audio.play();
-        break
-
-
+        break;
     case "h":
         var audio = new Audio("sounds/h.mp3");
         audio.play();
-        break
-
+        break;
     case "i":
         var audio = new Audio("sounds/i.mp3");
         audio.play();
-        break
-
-    case "j":
+        break;
+    case "j":   
         var audio = new Audio("sounds/j.mp3");
         audio.play();
-        break
-        
+        break;
     case "k":
         var audio = new Audio("sounds/k.mp3");
         audio.play();
-        break
+        break;                  
     case "l":
         var audio = new Audio("sounds/l.mp3");
         audio.play();
-        break
-
-    case "m":
+        break;
+    case "m":   
         var audio = new Audio("sounds/m.mp3");
         audio.play();
-        break
-
-    case "n":
+        break;
+    case "n":   
         var audio = new Audio("sounds/n.mp3");
         audio.play();
-        break
-
-    case "o":
+        break;
+    case "o":   
         var audio = new Audio("sounds/o.mp3");
         audio.play();
-        break
-
-    case "p":
+        break;
+    case "p":   
         var audio = new Audio("sounds/p.mp3");
         audio.play();
-        break
-
-    case "q":
+        break;
+    case "q":   
         var audio = new Audio("sounds/q.mp3");
         audio.play();
-        break
-
-    case "r":
+        break;
+    case "r":   
         var audio = new Audio("sounds/r.mp3");
         audio.play();
-        break
-    
-    case "s":
+        break;
+    case "s":   
         var audio = new Audio("sounds/s.mp3");
         audio.play();
-        break
-
-    case "t":
+        break;
+    case "t":   
         var audio = new Audio("sounds/t.mp3");
         audio.play();
-        break
-
-    case "u":
+        break;
+    case "u":   
         var audio = new Audio("sounds/u.mp3");
         audio.play();
-        break
-
-
-    case "v":
+        break;
+    case "v":   
         var audio = new Audio("sounds/v.mp3");
         audio.play();
-        break
-
-    case "w":
+        break;
+    case "w":   
         var audio = new Audio("sounds/w.mp3");
         audio.play();
-        break
-
-    case "x":
+        break;
+    case "x":   
         var audio = new Audio("sounds/x.mp3");
         audio.play();
-        break
-
-    case "y":
+        break;
+    case "y":   
         var audio = new Audio("sounds/y.mp3");
         audio.play();
-        break
-
-    case "z":
+        break;
+    case "z":   
         var audio = new Audio("sounds/z.mp3");
         audio.play();
-        break
-    
-    default:
-        console.log(buttonInnerHTML);
         break;
- 
-    }
+   
+    default:
+      console.log(key);
+  }
+}
 
-    
-
-
-
-
-});
-
+// Função para animação
+function botaoAnimacao(chaveAtual) {
+  var activeButton = document.querySelector("." + chaveAtual);
+  if (activeButton) {
+    activeButton.classList.add("pressed");
+    setTimeout(function () {
+      activeButton.classList.remove("pressed");
+    }, 100);
+  }
 }

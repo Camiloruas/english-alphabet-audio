@@ -139,3 +139,15 @@ function botaoAnimacao(chaveAtual) {
     }, 100);
   }
 }
+
+// Atualiza automaticamente o ano no rodape
+function atualizarAnoFooter() {
+  var anoAtual = new Date().getFullYear();
+  var anoElemento = document.getElementById("current-year");
+
+  if (anoElemento) {
+    anoElemento.textContent = anoAtual;
+  }
+}
+
+atualizarAnoFooter();

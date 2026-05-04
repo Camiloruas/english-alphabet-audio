@@ -1,153 +1,54 @@
+const LETTERS = "abcdefghijklmnopqrstuvwxyz".split("");
+const audioMap = new Map(
+  LETTERS.map((letter) => [letter, new Audio(`sounds/${letter}.mp3`)])
+);
 
-// Adiciona eventos aos botões
-var buttons = document.querySelectorAll(".letra");
+const lettersGrid = document.querySelector(".letters-grid");
+const yearElement = document.getElementById("current-year");
 
-for (var i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener("click", function () {
-    var buttonInnerHTML = this.innerHTML.toLowerCase();
-    makeSound(buttonInnerHTML);
-    botaoAnimacao(buttonInnerHTML);
+const setFooterYear = () => {
+  if (!yearElement) return;
+  yearElement.textContent = String(new Date().getFullYear());
+};
+
+const playLetterSound = (letter) => {
+  const normalizedLetter = letter.toLowerCase();
+  const audio = audioMap.get(normalizedLetter);
+
+  if (!audio) return;
+
+  audio.currentTime = 0;
+  audio.play().catch((error) => {
+    console.error(`Failed to play audio for letter "${normalizedLetter}".`, error);
   });
-}
+};
 
-// Detecta teclas do teclado
-document.addEventListener("keydown", function (event) {
-  makeSound(event.key);
-  botaoAnimacao(event.key);
+const animateLetterButton = (letter) => {
+  const button = document.querySelector(`[data-letter="${letter.toLowerCase()}"]`);
+  if (!button) return;
+
+  button.classList.add("is-pressed");
+  window.setTimeout(() => {
+    button.classList.remove("is-pressed");
+  }, 120);
+};
+
+const handleLetterAction = (letter) => {
+  if (!letter || !LETTERS.includes(letter.toLowerCase())) return;
+
+  playLetterSound(letter);
+  animateLetterButton(letter);
+};
+
+lettersGrid?.addEventListener("click", (event) => {
+  const button = event.target.closest(".letter-button");
+  if (!button) return;
+
+  handleLetterAction(button.dataset.letter);
 });
 
-// Função para tocar o som
-function makeSound(key) {
-  switch (key) {
-    case "a":
-      var audio = new Audio("sounds/a.mp3");
-      audio.play();
-      break;
-    case "b":
-        var audio = new Audio("sounds/b.mp3");
-        audio.play();
-        break;
-    case "c":
-        var audio = new Audio("sounds/c.mp3");
-        audio.play();
-        break;  
-    case "d":
-        var audio = new Audio("sounds/d.mp3");
-        audio.play();
-        break;
-    case "e":
-        var audio = new Audio("sounds/e.mp3");
-        audio.play();
-        break;
-    case "f":
-        var audio = new Audio("sounds/f.mp3");
-        audio.play();
-        break;
-    case "g":
-        var audio = new Audio("sounds/g.mp3");
-        audio.play();
-        break;
-    case "h":
-        var audio = new Audio("sounds/h.mp3");
-        audio.play();
-        break;
-    case "i":
-        var audio = new Audio("sounds/i.mp3");
-        audio.play();
-        break;
-    case "j":   
-        var audio = new Audio("sounds/j.mp3");
-        audio.play();
-        break;
-    case "k":
-        var audio = new Audio("sounds/k.mp3");
-        audio.play();
-        break;                  
-    case "l":
-        var audio = new Audio("sounds/l.mp3");
-        audio.play();
-        break;
-    case "m":   
-        var audio = new Audio("sounds/m.mp3");
-        audio.play();
-        break;
-    case "n":   
-        var audio = new Audio("sounds/n.mp3");
-        audio.play();
-        break;
-    case "o":   
-        var audio = new Audio("sounds/o.mp3");
-        audio.play();
-        break;
-    case "p":   
-        var audio = new Audio("sounds/p.mp3");
-        audio.play();
-        break;
-    case "q":   
-        var audio = new Audio("sounds/q.mp3");
-        audio.play();
-        break;
-    case "r":   
-        var audio = new Audio("sounds/r.mp3");
-        audio.play();
-        break;
-    case "s":   
-        var audio = new Audio("sounds/s.mp3");
-        audio.play();
-        break;
-    case "t":   
-        var audio = new Audio("sounds/t.mp3");
-        audio.play();
-        break;
-    case "u":   
-        var audio = new Audio("sounds/u.mp3");
-        audio.play();
-        break;
-    case "v":   
-        var audio = new Audio("sounds/v.mp3");
-        audio.play();
-        break;
-    case "w":   
-        var audio = new Audio("sounds/w.mp3");
-        audio.play();
-        break;
-    case "x":   
-        var audio = new Audio("sounds/x.mp3");
-        audio.play();
-        break;
-    case "y":   
-        var audio = new Audio("sounds/y.mp3");
-        audio.play();
-        break;
-    case "z":   
-        var audio = new Audio("sounds/z.mp3");
-        audio.play();
-        break;
-   
-    default:
-      console.log(key);
-  }
-}
+document.addEventListener("keydown", (event) => {
+  handleLetterAction(event.key);
+});
 
-// Função para animação
-function botaoAnimacao(chaveAtual) {
-  var activeButton = document.querySelector("." + chaveAtual);
-  if (activeButton) {
-    activeButton.classList.add("pressed");
-    setTimeout(function () {
-      activeButton.classList.remove("pressed");
-    }, 100);
-  }
-}
-
-// Atualiza automaticamente o ano no rodape
-function atualizarAnoFooter() {
-  var anoAtual = new Date().getFullYear();
-  var anoElemento = document.getElementById("current-year");
-
-  if (anoElemento) {
-    anoElemento.textContent = anoAtual;
-  }
-}
-
-atualizarAnoFooter();
+setFooterYear();

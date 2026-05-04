@@ -1,61 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Learn the English Alphabet with Sounds</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
-</head>
-
-<body>
-
-  <h1 id="title">"ABC with Audio – Let's Learn Together!</h1>
-  <h3>Click on the letters and start learning pronunciation 👇</h3>
-
-  <div class="set">
-    <button class="a letra">A</button>
-    <button class="b letra">B</button>
-    <button class="c letra">C</button>
-    <button class="d letra">D</button>
-    <button class="e letra">E</button>
-    <button class="f letra">F</button>
-    <button class="g letra">G</button>
-    <button class="h letra">H</button>
-    <button class="i letra">I</button>
-    <button class="j letra">J</button>
-    <button class="k letra">K</button>
-    <button class="l letra">L</button>
-    <button class="m letra">M</button>
-    <button class="n letra">N</button>
-    <button class="o letra">O</button>
-    <button class="p letra">P</button>
-    <button class="q letra">Q</button>
-    <button class="r letra">R</button>
-    <button class="s letra">S</button>
-    <button class="t letra">T</button>
-    <button class="u letra">U</button>
-    <button class="v letra">V</button>
-    <button class="w letra">W</button>
-    <button class="x letra">X</button>
-    <button class="y letra">Y</button>
-    <button class="z letra">Z</button>
-
-  </div>
-
-
-
-
-
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive English alphabet board with audio pronunciation for each letter.">
+  <title>Learn the English Alphabet with Audio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
   <script src="./index.js" defer></script>
-  
+</head>
+<body>
+  <header class="page-header">
+    <h1>ABC with Audio</h1>
+    <p class="subtitle">Click a letter or press a key from A to Z to hear pronunciation.</p>
+  </header>
+
+  <main>
+    <section aria-label="English alphabet letters">
+      <div class="letters-grid" role="group" aria-label="Alphabet sound buttons">
+        <button type="button" class="letter-button" data-letter="a" aria-label="Play pronunciation of letter A">A</button>
+        <button type="button" class="letter-button" data-letter="b" aria-label="Play pronunciation of letter B">B</button>
+        <button type="button" class="letter-button" data-letter="c" aria-label="Play pronunciation of letter C">C</button>
+        <button type="button" class="letter-button" data-letter="d" aria-label="Play pronunciation of letter D">D</button>
+        <button type="button" class="letter-button" data-letter="e" aria-label="Play pronunciation of letter E">E</button>
+        <button type="button" class="letter-button" data-letter="f" aria-label="Play pronunciation of letter F">F</button>
+        <button type="button" class="letter-button" data-letter="g" aria-label="Play pronunciation of letter G">G</button>
+        <button type="button" class="letter-button" data-letter="h" aria-label="Play pronunciation of letter H">H</button>
+        <button type="button" class="letter-button" data-letter="i" aria-label="Play pronunciation of letter I">I</button>
+        <button type="button" class="letter-button" data-letter="j" aria-label="Play pronunciation of letter J">J</button>
+        <button type="button" class="letter-button" data-letter="k" aria-label="Play pronunciation of letter K">K</button>
+        <button type="button" class="letter-button" data-letter="l" aria-label="Play pronunciation of letter L">L</button>
+        <button type="button" class="letter-button" data-letter="m" aria-label="Play pronunciation of letter M">M</button>
+        <button type="button" class="letter-button" data-letter="n" aria-label="Play pronunciation of letter N">N</button>
+        <button type="button" class="letter-button" data-letter="o" aria-label="Play pronunciation of letter O">O</button>
+        <button type="button" class="letter-button" data-letter="p" aria-label="Play pronunciation of letter P">P</button>
+        <button type="button" class="letter-button" data-letter="q" aria-label="Play pronunciation of letter Q">Q</button>
+        <button type="button" class="letter-button" data-letter="r" aria-label="Play pronunciation of letter R">R</button>
+        <button type="button" class="letter-button" data-letter="s" aria-label="Play pronunciation of letter S">S</button>
+        <button type="button" class="letter-button" data-letter="t" aria-label="Play pronunciation of letter T">T</button>
+        <button type="button" class="letter-button" data-letter="u" aria-label="Play pronunciation of letter U">U</button>
+        <button type="button" class="letter-button" data-letter="v" aria-label="Play pronunciation of letter V">V</button>
+        <button type="button" class="letter-button" data-letter="w" aria-label="Play pronunciation of letter W">W</button>
+        <button type="button" class="letter-button" data-letter="x" aria-label="Play pronunciation of letter X">X</button>
+        <button type="button" class="letter-button" data-letter="y" aria-label="Play pronunciation of letter Y">Y</button>
+        <button type="button" class="letter-button" data-letter="z" aria-label="Play pronunciation of letter Z">Z</button>
+      </div>
+    </section>
+  </main>
+
   <footer>
     <p>&copy; <span id="current-year"></span> Camilo Ruas. All rights reserved.</p>
   </footer>
-  
-
 </body>
-
 </html>
-

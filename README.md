@@ -1,26 +1,45 @@
 # ABC with Audio
 
-Este projeto é uma ferramenta interativa para aprender o alfabeto em inglês, com áudios para cada letra, permitindo que o usuário ouça e aprenda a pronúncia correta de cada uma. Ideal para iniciantes no aprendizado do inglês.
+Aplicação web simples para praticar o alfabeto em inglês com áudio de pronúncia para cada letra.
 
-## Funcionalidade
+## Demo
 
-- Apresentação das 26 letras do alfabeto.
-- Áudio para cada letra, permitindo praticar a pronúncia.
+- GitHub Pages: https://camiloruas.github.io/english-alphabet-audio/
 
-## Como usar
+## Funcionalidades
 
-1. Acesse o site: [ABC with Audio](https://camiloruas.github.io/english-alphabet-audio/)
-2. Clique nas letras para ouvir sua pronúncia.
+- 26 botões (A-Z) com pronúncia individual.
+- Suporte a mouse e teclado (teclas de A a Z).
+- Feedback visual ao tocar cada letra.
+- Rodapé com ano atualizado automaticamente.
+- Layout responsivo para desktop e mobile.
 
-## Aprendizados
+## Tecnologias
 
-Este projeto foi desenvolvido para facilitar o aprendizado do alfabeto inglês, utilizando HTML, CSS e JavaScript para interatividade e áudio.
+- HTML5 semântico
+- CSS3 (Grid, responsividade e variáveis)
+- JavaScript (ES6+, eventos e manipulação de áudio)
+
+## Executando localmente
+
+1. Clone o repositório:
+   `git clone https://github.com/Camiloruas/english-alphabet-audio.git`
+2. Entre na pasta do projeto:
+   `cd english-alphabet-audio`
+3. Abra o arquivo `index.html` no navegador.
+
+## Melhorias aplicadas na refatoração
+
+- Código JavaScript reestruturado com funções pequenas e reutilizáveis.
+- Remoção de repetição com mapeamento dinâmico dos áudios.
+- Melhorias de acessibilidade (`aria-label`, foco visível e semântica HTML).
+- Estilos organizados com variáveis CSS para facilitar manutenção.
 
 ## Autor
 
 Desenvolvido por **Camilo Ruas**.
-[GitHub](https://github.com/Camiloruas)
+- GitHub: https://github.com/Camiloruas
 
 ## Licença
 
-Sinta-se à vontade para usar, modificar e compartilhar.
+Uso livre para estudo, modificação e compartilhamento.

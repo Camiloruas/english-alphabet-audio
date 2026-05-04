@@ -1,3 +1,13 @@
+:root {
+  --bg-color: #283149;
+  --text-color: #dbedf3;
+  --accent-color: #da0463;
+  --button-border: #404b69;
+  --button-bg: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --font-family: "Arvo", serif;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -7,79 +17,85 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
   text-align: center;
-  background-color: #283149;
-  padding: clamp(8px, 1.5vh, 14px) clamp(8px, 2vw, 18px);
+  padding: clamp(12px, 2vh, 20px) clamp(10px, 3vw, 28px);
 }
 
-h1 {
+.page-header h1 {
   margin: 0;
-  font-size: clamp(1.6rem, 4vw, 2.8rem);
-  color: #dbedf3;
-  font-family: "Arvo", cursive;
-  text-shadow: 2px 0 #da0463;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  text-shadow: 2px 0 var(--accent-color);
 }
 
-h3 {
-  margin: clamp(4px, 1vh, 10px) 0 0;
-  font-size: clamp(1rem, 2vw, 1.4rem);
-  color: #dbedf3;
-  font-family: "Arvo", cursive;
-  text-shadow: 1px 0 #da0463;
+.subtitle {
+  margin: 10px 0 0;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  text-shadow: 1px 0 var(--accent-color);
+}
+
+main {
+  flex: 1;
+  display: grid;
+  place-items: center;
+}
+
+.letters-grid {
+  width: min(100%, 980px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+  gap: clamp(6px, 1.2vmin, 12px);
+}
+
+.letter-button {
+  border: clamp(3px, 0.7vmin, 8px) solid var(--button-border);
+  border-radius: 12px;
+  background-color: var(--button-bg);
+  color: var(--accent-color);
+  cursor: pointer;
+  min-height: 85px;
+  aspect-ratio: 1 / 1;
+  font-family: var(--font-family);
+  font-size: clamp(2rem, 6vmin, 3.2rem);
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 1px 0 var(--text-color);
+  -webkit-text-stroke: 0.8px var(--accent-color);
+  transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+}
+
+.letter-button:hover {
+  transform: translateY(-2px);
+}
+
+.letter-button:focus-visible {
+  outline: 3px solid var(--text-color);
+  outline-offset: 2px;
+}
+
+.letter-button.is-pressed {
+  box-shadow: 0 3px 7px var(--shadow-color);
+  opacity: 0.6;
+  transform: scale(0.98);
 }
 
 footer {
-  color: #dbedf3;
-  font-family: sans-serif;
-  font-size: clamp(0.75rem, 1.4vw, 0.95rem);
-  margin-top: clamp(4px, 1vh, 10px);
+  font-family: system-ui, sans-serif;
+  font-size: clamp(0.8rem, 1.6vw, 0.95rem);
 }
 
 footer p {
-  margin: 0;
+  margin: 8px 0 0;
 }
 
-.set {
-  width: min(98vw, 1000px, calc((100vh - 190px) * 1.75));
-  margin: clamp(8px, 1.5vh, 14px) auto;
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: clamp(4px, 1vmin, 10px);
-  align-content: center;
-}
+@media (max-width: 540px) {
+  .letters-grid {
+    grid-template-columns: repeat(4, minmax(64px, 1fr));
+  }
 
-.game-over {
-  background-color: red;
-  opacity: 0.8;
-}
-
-.pressed {
-  box-shadow: 0 3px 4px 0 #dbedf3;
-  opacity: 0.5;
-}
-
-.red {
-  color: red;
-}
-
-.letra {
-  outline: none;
-  border: clamp(3px, 0.7vmin, 8px) solid #404b69;
-  border-radius: 12px;
-  background-color: white;
-  cursor: pointer;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: clamp(3rem, 5.6vmin, 3.2rem); /* clamp(min, ideal, max): mantém a letra responsiva sem ficar menor que 3rem nem maior que 3.2rem */
-  line-height: 1;
-  font-family: "Arvo", cursive;
-  font-weight: 900;
-  color: #da0463;
-  text-shadow: 1px 0 #dbedf3;
-   -webkit-text-stroke: 0.8px #da0463;
+  .letter-button {
+    min-height: 70px;
+  }
 }

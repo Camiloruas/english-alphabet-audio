@@ -40,13 +40,16 @@ main {
   flex: 1;
   display: grid;
   place-items: center;
+  width: 100%;
 }
 
 .letters-grid {
-  width: min(100%, 980px);
+  width: min(96vw, 980px);
+  height: min(62vh, 560px);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
-  gap: clamp(6px, 1.2vmin, 12px);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+  gap: clamp(5px, 1vmin, 10px);
 }
 
 .letter-button {
@@ -55,10 +58,10 @@ main {
   background-color: var(--button-bg);
   color: var(--accent-color);
   cursor: pointer;
-  min-height: 85px;
-  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: 100%;
   font-family: var(--font-family);
-  font-size: clamp(2rem, 6vmin, 3.2rem);
+  font-size: clamp(1.2rem, 4vmin, 2.4rem);
   font-weight: 700;
   line-height: 1;
   text-shadow: 1px 0 var(--text-color);
@@ -92,10 +95,8 @@ footer p {
 
 @media (max-width: 540px) {
   .letters-grid {
-    grid-template-columns: repeat(4, minmax(64px, 1fr));
-  }
-
-  .letter-button {
-    min-height: 70px;
+    width: min(98vw, 980px);
+    height: min(64vh, 480px);
+    gap: 5px;
   }
 }
